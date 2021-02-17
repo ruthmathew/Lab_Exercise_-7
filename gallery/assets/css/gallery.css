@@ -1,0 +1,13 @@
+html, body {
+    max-width: 100%;
+    overflow-y: hidden;
+}
+
+#new{
+    max-width: 100%;
+    border: solid black 1px;
+    border-radius: 20px;
+    
+}
+
+

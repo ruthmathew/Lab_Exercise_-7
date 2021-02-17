@@ -19,9 +19,9 @@ function clock(){
     
     // calculate the ratio (to know how far the hand needs to rotate)
     const secondRatio = seconds / 60
-    const miniuteRatio =(secondRatio + miniute)/ 60;  // to make the minute hand move gadually after the second hand
+    const miniuteRatio =(secondRatio + miniute)/ 60;  // added secondRatio to make the minute hand move gadually after the second hand
     // adds the second to the miniutes
-    const hourRatio = (miniuteRatio + hour) / 12; // to make the hour hand move gradually after the miniute hand
+    const hourRatio = (miniuteRatio + hour) / 12; // added minuiteRatio to make the hour hand move gradually after the miniute hand
     // adds the munites to the hours
 
     rotation(secondHand, secondRatio);
