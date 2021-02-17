@@ -1,24 +1,42 @@
 // UI Vars 
 const postDiv3 = document.getElementById('thePosts');
+const spinner = document.getElementById('spinner');
+
+// function for the spinner
+function show() {
+    spinner.style.display = "block";
+}
+
+function hide() {
+    spinner.style.display = 'none';
+}
 
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
-    //load_fromPlaceHolder();
-    loadDataNew();
+    load_fromPlaceHolder();
+    // loadDataNew();
 });
+
+
 
 
 //load a single customer function 
 function load_fromPlaceHolder() {
 
-    //open the request 
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    show(); // show the spinner before the API starts fetching the data
+
+    // add all the loading in a timer
+
+    setTimeout(() => {
+        //open the request 
+        fetch('https://jsonplaceholder.typicode.com/posts')
     
-    .then((resolvedData) => document.getElementById('spinner').innerHTML = resolvedData)
+        // .then((resolvedData) => document.getElementById('spinner').innerHTML = resolvedData)
         .then(function(res) {
             return res.json(); //return the JSON Promise
         })
         .then(function(posts) {
+            hide(); // hide the spinner before the blogs are loaded
             //iterate over each post [100 posts]
             let output = '';
             posts.forEach(function(post) {
@@ -51,7 +69,11 @@ function load_fromPlaceHolder() {
             console.log(err);
         });
 
-        document.getElementsById("loader").style.display = "none"
+    }, 5000)
+
+    
+
+        // document.getElementsById("loader").style.display = "none"
 
 
 
@@ -103,3 +125,4 @@ function loadDataNew() {
         });
 
 }
+
